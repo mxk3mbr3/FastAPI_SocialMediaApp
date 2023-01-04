@@ -2,9 +2,8 @@ name: Build and Deploy Code
 on: [push, pull_request]
 jobs:
   job1:
-    # For future deployment with testing
-    # environment:
-    #   name: testing
+    environment:
+      name: testing
     # env:
     #   DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
     #   DATABASE_PORT: ${{secrets.DATABASE_PORT}}
