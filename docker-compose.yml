@@ -5,7 +5,7 @@ services:
     depends_on:
     - postgres
     ports:
-      - "8000:8000"
+      - 8000:8000
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     volumes:
       - ./:/usr/src/app:ro
@@ -15,8 +15,8 @@ services:
   postgres:
     image: postgres
     environment:
-      - POSTGRES_PASSWORD=password1234
-      - POSTGRES_DB=fastapi
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
     ports:
       - 5432:5432
 
@@ -25,6 +25,3 @@ services:
   
 volumes:
   postgres-db:
-
-
-
