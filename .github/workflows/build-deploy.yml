@@ -3,9 +3,9 @@ name: Build and Deploy Code
 on: [push, pull_request]
 jobs:
   build:
+    # For future deployment with testing - however, environment still needed for docker
     environment:
       name: testing
-    # For future deployment with testing
     # env:
     #   DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
     #   DATABASE_PORT: ${{secrets.DATABASE_PORT}}
@@ -75,7 +75,6 @@ jobs:
           username: ${{secrets.PROD_USERNAME}}
           password: ${{secrets.PROD_PASSWORD}}
           script: |
-            sudo su - ${{secrets.PROD_USERNAME_RIGHTS}}
             cd app/src
             git pull 
             echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart social_media_app.service
