@@ -62,7 +62,7 @@ jobs:
 # CD part of pipeline
   deploy:
     runs-on: ubuntu-latest
-    # Below is needed since jobs runs in parallel but you need to build first before deployment
+    # Below is needed since jobs run in parallel but you need to build first before deployment
     needs:
       - build
     environment:
@@ -75,6 +75,7 @@ jobs:
           username: ${{secrets.PROD_USERNAME}}
           password: ${{secrets.PROD_PASSWORD}}
           script: |
+            sudo su - ${{secrets.PROD_USERNAME_RIGHTS}}
             cd app/src
             git pull 
-            echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart social_media_app.service 
+            echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart social_media_app.service
