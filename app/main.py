@@ -31,7 +31,7 @@ try:
     # Setting up 1st CRUD endpoint 
     @app.get("/", tags=['Root'])
     def root():
-        return {"message":"Welcome to your favourite Social Media app!!"}
+        return {"message":"Welcome to your favourite Social Media app"}
 
     # Linking app instance to router variable for post, user and auth python 
     # The below contain almost all the endpoints for the API
