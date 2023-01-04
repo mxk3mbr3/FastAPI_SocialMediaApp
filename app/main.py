@@ -29,7 +29,7 @@ try:
     database.table_setup()
  
     # Setting up 1st CRUD endpoint 
-    @app.get("/")
+    @app.get("/", tags=['Root'])
     def root():
         return {"message":"Welcome to your favourite Social Media app!!"}
 
