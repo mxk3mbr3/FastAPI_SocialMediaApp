@@ -4,7 +4,7 @@ from . import database
 from fastapi.middleware.cors import CORSMiddleware
 
 # Making app variable an instance of the class FastAPI 
-app = FastAPI()
+app = FastAPI(title='Social Media App')
 
 # Using * wildcard in origins will allow every single domain/origin to make cross-origin requests 
 # Note: If you only wanted certain domains to make these requests you would do as follows:  
