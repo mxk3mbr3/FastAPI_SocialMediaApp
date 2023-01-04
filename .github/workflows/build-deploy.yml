@@ -65,6 +65,8 @@ jobs:
     # Below is needed since jobs runs in parallel but you need to build first before deployment
     needs:
       - build
+    environment:
+      name: production
     steps:
       - name: deploy to ubuntu server
         uses: appleboy/ssh-action@master
